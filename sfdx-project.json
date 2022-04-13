@@ -3,9 +3,9 @@
         {
             "path": "force-app",
             "default": true,
-            "package": "LmaAppCockpit",
-            "versionName": "ver 1.1",
-            "versionNumber": "1.1.0.NEXT",
+            "package": "lma-app-cockpit",
+            "versionName": "ver 1.2",
+            "versionNumber": "1.2.0.NEXT",
             "dependencies": [
                 {
                     "package": "lma"
@@ -17,7 +17,9 @@
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "51.0",
     "packageAliases": {
-        "LmaAppCockpit": "0Ho5p000000oLkjCAE",
-        "lma": "04t30000001DWL0AAO"
+        "lma-app-cockpit": "0Ho4G000000k9e7SAA",
+        "lma": "04t30000001DWL0AAO",
+        "lma-app-cockpit@1.1.0-1": "04t4G000000cQwdQAE",
+        "lma-app-cockpit@1.2.0-1": "04t4G000000cQxMQAU"
     }
 }
