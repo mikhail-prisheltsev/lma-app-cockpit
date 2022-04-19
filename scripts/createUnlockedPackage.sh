@@ -17,10 +17,16 @@ fi
 # echo "Unlocked package created"
 
 echo "Create new package version.."
-echo "sfdx force:package:version:create -p $PACKAGE_NAME -x -w 10 --codecoverage -v $DEV_HUB_ALIAS --json"
-PACKAGE_VERSION="$(execute sfdx force:package:version:create -p $PACKAGE_NAME -x -w 10 --codecoverage -v $DEV_HUB_ALIAS --json | jq '.result.SubscriberPackageVersionId' | tr -d '"')"
-echo "Promote with: sfdx force:package:version:promote -p $PACKAGE_VERSION"
+echo "Running: sfdx force:package:version:create -p $PACKAGE_NAME -x -w 10 --codecoverage -v $DEV_HUB_ALIAS --json"
+
+VERSION_DATA="$(execute sfdx force:package:version:create -p $PACKAGE_NAME -x -w 10 --codecoverage -v $DEV_HUB_ALIAS --json)"
+echo $VERSION_DATA
+PACKAGE_VERSION="$(echo $VERSION_DATA | jq '.result.SubscriberPackageVersionId' | tr -d '"')"
+
+echo "Package version created: $PACKAGE_VERSION"
+
+# echo "Promote with: sfdx force:package:version:promote -p $PACKAGE_VERSION -v $DEV_HUB_ALIAS"
 echo "Install from: /packaging/installPackage.apexp?p0=$PACKAGE_VERSION"
 
-# echo "Promoting the package.."
-# sfdx force:package:version:promote -p $PACKAGE_VERSION -v $DEV_HUB_ALIAS
+echo "Promoting the package.."
+sfdx force:package:version:promote -p $PACKAGE_VERSION -v $DEV_HUB_ALIAS
