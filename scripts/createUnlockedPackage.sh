@@ -23,10 +23,12 @@ VERSION_DATA="$(execute sfdx force:package:version:create -p $PACKAGE_NAME -x -w
 echo $VERSION_DATA
 PACKAGE_VERSION="$(echo $VERSION_DATA | jq '.result.SubscriberPackageVersionId' | tr -d '"')"
 
+echo "====================================================="
 echo "Package version created: $PACKAGE_VERSION"
 
-# echo "Promote with: sfdx force:package:version:promote -p $PACKAGE_VERSION -v $DEV_HUB_ALIAS"
-echo "Install from: /packaging/installPackage.apexp?p0=$PACKAGE_VERSION"
 
 echo "Promoting the package.."
 sfdx force:package:version:promote -p $PACKAGE_VERSION -v $DEV_HUB_ALIAS
+
+echo "====================================================="
+echo "Install from: /packaging/installPackage.apexp?p0=$PACKAGE_VERSION"
