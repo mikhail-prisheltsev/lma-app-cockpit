@@ -4,8 +4,8 @@
             "path": "force-app",
             "default": true,
             "package": "lma-app-cockpit",
-            "versionName": "ver 1.7",
-            "versionNumber": "1.7.0.NEXT",
+            "versionName": "ver 2.0",
+            "versionNumber": "2.0.0.NEXT",
             "dependencies": [
                 {
                     "package": "lma"
@@ -25,6 +25,7 @@
         "lma-app-cockpit@1.3.0-2": "04t4G000000YDR0QAO",
         "lma-app-cockpit@1.4.0-1": "04t4G000000YDR5QAO",
         "lma-app-cockpit@1.5.0-1": "04t4G000000YDRFQA4",
-        "lma-app-cockpit@1.7.0-1": "04t4G000000YDRZQA4"
+        "lma-app-cockpit@1.7.0-1": "04t4G000000YDRZQA4",
+        "lma-app-cockpit@2.0.0-1": "04t4G000000YDRjQAO"
     }
 }
